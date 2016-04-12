@@ -1,0 +1,23 @@
+{
+  "name": "webdriverio-course-content",
+  "version": "1.0.0",
+  "description": "WebdriverIO Course Content (examples, exercises and sample site)",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server sample-site -p 8303",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klamping/webdriverio-course-content.git"
+  },
+  "author": "Kevin Lamping",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klamping/webdriverio-course-content/issues"
+  },
+  "homepage": "https://github.com/klamping/webdriverio-course-content#readme",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
