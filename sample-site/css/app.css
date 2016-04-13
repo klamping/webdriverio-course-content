@@ -23,6 +23,7 @@ body {
 
 .dropdown.menu .submenu a {
   color: #222831;
+  border-bottom: 1px solid #ddd;
 }
 
 .dropdown.menu .submenu a:hover,
