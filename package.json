@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server sample-site -p 8303",
-    "test": "npm test"
+    "test": "npm test",
+    "ghPages": "gh-pages -d sample-site"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/klamping/webdriverio-course-content#readme",
   "dependencies": {
+    "gh-pages": "^0.11.0",
     "http-server": "^0.9.0"
   }
 }
