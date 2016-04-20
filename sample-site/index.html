@@ -25,7 +25,7 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#about" data-open="about">About</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
@@ -120,10 +120,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="reveal" id="about" data-reveal>
+          <h3>About Robot Parts Emporium</h3>
+          <p class="lead">Your Robot Part Emporium Superstore.</p>
+          <p>Selling nothing but robots and robot accessories.</p>
+          <p>Here's a video review from a happy customer:</p>
+          <video src="images/dance.mp4" type="video/mp4" style="width: 100%;" loop controls></video>
+
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/foundation.min.js"></script>
         <script src="js/vendor/what-input.js"></script>
-        <script src="js/app.js"></script>
         <script>
             $(document).foundation();
         </script>
