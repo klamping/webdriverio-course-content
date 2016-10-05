@@ -1,6 +1,6 @@
-# WebdriverIO Course Content (examples, exercises and sample site)
+# WebdriverIO Course Content
 
-Companion content for [Automated Testing with WebdriverIO](http://www.kevinlamping.com/automated-testing-with-webdriverio/) course.
+Companion content for [Automated Testing with WebdriverIO](http://learnwebdriverio.com/) course.
 
 ## Installation
 
@@ -12,13 +12,14 @@ npm install
 
 ## Usage
 
+Install the Dependencies:
+
+```sh
+npm install
+```
+
 Run the test server:
 
 ```sh
 npm start
-```
-
-Run a test:
-```sh
-npm test examples/test-file.js
 ```
