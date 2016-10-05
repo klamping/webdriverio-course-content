@@ -83,23 +83,36 @@
             <div class="tabs-content" data-tabs-content="example-tabs">
                 <div class="tabs-panel is-active comments" id="panel1">
                     <h4>Reviews</h4>
-                    <div class="media-object stack-for-small comment">
-                        <div class="media-object-section">
-                            <img class="thumbnail" src="images/fry.png">
+                    <div class="reviews">
+                      <div class="media-object stack-for-small comment">
+                          <div class="media-object-section">
+                              <img class="thumbnail" src="images/fry.png">
+                          </div>
+                          <div class="media-object-section">
+                              <h5>Philip J. Fry</h5>
+                              <p>Shut up and take my money!</p>
+                          </div>
+                      </div>
+                      <div class="media-object stack-for-small comment">
+                          <div class="media-object-section">
+                              <img class="thumbnail" src="images/dalek.jpg">
+                          </div>
+                          <div class="media-object-section">
+                              <h5>Dalek</h5>
+                              <p>Exterminate! Exterminate! Exterminate! Exterminate!</p>
+                          </div>
+                      </div>
+                      <script id="review-template" type="text/template">
+                        <div class="media-object stack-for-small comment">
+                            <div class="media-object-section">
+                                <img class="thumbnail" src="images/avatar.png">
+                            </div>
+                            <div class="media-object-section">
+                                <h5 class="email"></h5>
+                                <p class="comment"></p>
+                            </div>
                         </div>
-                        <div class="media-object-section">
-                            <h5>Philip J. Fry</h5>
-                            <p>Shut up and take my money!</p>
-                        </div>
-                    </div>
-                    <div class="media-object stack-for-small comment">
-                        <div class="media-object-section">
-                            <img class="thumbnail" src="images/dalek.jpg">
-                        </div>
-                        <div class="media-object-section">
-                            <h5>Dalek</h5>
-                            <p>Exterminate! Exterminate! Exterminate! Exterminate!</p>
-                        </div>
+                      </script>
                     </div>
                     <form data-abide novalidate id="comment-form">
                       <div data-abide-error class="alert callout" style="display: none;">
@@ -174,6 +187,25 @@
         </div>
 
         <script src="js/vendor/jquery.js"></script>
+
+        <script>
+          $('#comment-form').submit(function (ev) {
+            ev.preventDefault();
+
+            var templateHtml = $("#review-template").html();
+
+            var template = $(templateHtml);
+
+            var email = $('#review-email').val();
+            var review = $('#review-content').val();
+
+            template.find('.email').text(email);
+            template.find('.comment').text(review);
+
+            $('.reviews').append(template);
+          });
+        </script>
+
         <script src="js/vendor/foundation.min.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script>
