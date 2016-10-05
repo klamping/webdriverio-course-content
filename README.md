@@ -2,6 +2,14 @@
 
 Companion content for [Automated Testing with WebdriverIO](http://www.kevinlamping.com/automated-testing-with-webdriverio/) course.
 
+## Installation
+
+You must have [Node.js](https://www.nodejs.org/) installed.
+
+```sh
+npm install
+```
+
 ## Usage
 
 Run the test server:

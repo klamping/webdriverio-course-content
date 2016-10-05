@@ -81,39 +81,58 @@
                 <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
             </ul>
             <div class="tabs-content" data-tabs-content="example-tabs">
-                <div class="tabs-panel is-active" id="panel1">
+                <div class="tabs-panel is-active comments" id="panel1">
                     <h4>Reviews</h4>
-                    <div class="media-object stack-for-small">
-                        <div class="media-object-section">
-                            <img class="thumbnail" src="images/fry.png">
+                    <div class="reviews">
+                      <div class="media-object stack-for-small comment">
+                          <div class="media-object-section">
+                              <img class="thumbnail" src="images/fry.png">
+                          </div>
+                          <div class="media-object-section">
+                              <h5>Philip J. Fry</h5>
+                              <p>Shut up and take my money!</p>
+                          </div>
+                      </div>
+                      <div class="media-object stack-for-small comment">
+                          <div class="media-object-section">
+                              <img class="thumbnail" src="images/dalek.jpg">
+                          </div>
+                          <div class="media-object-section">
+                              <h5>Dalek</h5>
+                              <p>Exterminate! Exterminate! Exterminate! Exterminate!</p>
+                          </div>
+                      </div>
+                      <script id="review-template" type="text/template">
+                        <div class="media-object stack-for-small comment">
+                            <div class="media-object-section">
+                                <img class="thumbnail" src="images/avatar.jpg">
+                            </div>
+                            <div class="media-object-section">
+                                <h5 class="email"></h5>
+                                <p class="comment"></p>
+                            </div>
                         </div>
-                        <div class="media-object-section">
-                            <h5>Philip J. Fry</h5>
-                            <p>Shut up and take my money!</p>
-                        </div>
+                      </script>
                     </div>
-                    <div class="media-object stack-for-small">
-                        <div class="media-object-section">
-                            <img class="thumbnail" src="images/dalek.jpg">
-                        </div>
-                        <div class="media-object-section">
-                            <h5>Dalek</h5>
-                            <p>Exterminate! Exterminate! Exterminate! Exterminate!</p>
-                        </div>
-                    </div>
-                    <form data-abide novalidate>
+                    <form data-abide novalidate id="comment-form">
                       <div data-abide-error class="alert callout" style="display: none;">
                         <p><i class="fi-alert"></i> There are some errors in your review.</p>
                       </div>
+                      <h3>Add a Review</h3>
                       <label>
-                        My Review
+                        <input type="email" id="review-email" placeholder="Email Address" required>
+                        <span class="form-error">
+                          Please enter a valid email address.
+                        </span>
+                      </label>
+                      <label>
                         <textarea placeholder="This product is..." id="review-content" required></textarea>
                         <span class="form-error">
                           A review without text isn't much of a review.
                         </span>
                       </label>
 
-                      <button class="button" type="submit" onclick="addReview()">Submit Review</button>
+                      <button class="button" type="submit">Submit Review</button>
                     </form>
                 </div>
                 <div class="tabs-panel" id="panel2">
@@ -168,6 +187,25 @@
         </div>
 
         <script src="js/vendor/jquery.js"></script>
+
+        <script>
+          $('#comment-form').submit(function (ev) {
+            ev.preventDefault();
+
+            var templateHtml = $("#review-template").html();
+
+            var template = $(templateHtml);
+
+            var email = $('#review-email').val();
+            var review = $('#review-content').val();
+
+            template.find('.email').text(email);
+            template.find('.comment').text(review);
+
+            $('.reviews').append(template);
+          });
+        </script>
+
         <script src="js/vendor/foundation.min.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script>
