@@ -115,21 +115,21 @@
                       </script>
                     </div>
                     <form data-abide novalidate id="comment-form">
+                      <h3>Add a Review</h3>
                       <div data-abide-error class="alert callout" style="display: none;">
                         <p><i class="fi-alert"></i> There are some errors in your review.</p>
                       </div>
-                      <h3>Add a Review</h3>
                       <label>
                         <input type="email" id="review-email" placeholder="Email Address" required>
-                        <span class="form-error">
+                        <p class="form-error">
                           Please enter a valid email address.
-                        </span>
+                        </p>
                       </label>
                       <label>
                         <textarea placeholder="This product is..." id="review-content" required></textarea>
-                        <span class="form-error">
+                        <p class="form-error">
                           A review without text isn't much of a review.
-                        </span>
+                        </p>
                       </label>
 
                       <button class="button" type="submit">Submit Review</button>
