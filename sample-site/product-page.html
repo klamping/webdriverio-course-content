@@ -188,28 +188,39 @@
 
         <script src="js/vendor/jquery.js"></script>
 
-        <script>
-          $('#comment-form').submit(function (ev) {
-            ev.preventDefault();
-
-            var templateHtml = $("#review-template").html();
-
-            var template = $(templateHtml);
-
-            var email = $('#review-email').val();
-            var review = $('#review-content').val();
-
-            template.find('.email').text(email);
-            template.find('.comment').text(review);
-
-            $('.reviews').append(template);
-          });
-        </script>
-
         <script src="js/vendor/foundation.min.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script>
-            $(document).foundation();
+          $(document).foundation();
+
+          $('#comment-form')
+            .on('forminvalid.zf.abide', function (ev, frm) {
+              // find the first invalid element
+              var firstInvalid = $(frm).find('[data-invalid]').eq(0);
+
+              // if we find one, set focus
+              if (firstInvalid) {
+                  firstInvalid.focus();
+              }
+            })
+            .on('formvalid.zf.abide', function (ev, frm) {
+              var templateHtml = $("#review-template").html();
+
+              var template = $(templateHtml);
+
+              var email = $('#review-email').val();
+              var review = $('#review-content').val();
+
+              template.find('.email').text(email);
+              template.find('.comment').text(review);
+
+              $('.reviews').append(template);
+              frm.foundation('resetForm');
+            })
+            // to prevent form from submitting upon successful validation
+            .on("submit", function(ev) {
+              ev.preventDefault();
+            });
         </script>
     </body>
 </html>
