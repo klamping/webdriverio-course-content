@@ -8,8 +8,6 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
-
-
         <div class="top-bar">
             <div class="row">
 
@@ -51,12 +49,12 @@
             <div class="medium-6 columns">
                 <img class="thumbnail" src="images/robot-product-5.jpg">
             </div>
-            <div class="medium-6 large-5 columns">
+            <div class="medium-6 large-5 columns cart">
                 <h3>Totally Not Evil Sentient Robot</h3>
                 <p>This robot comes pre-programmed with Asimov's Three Laws and can recognize a human from a robot 99% of the time. 100% money-back guarantee!</p>
                 <label>
                     Robot Model
-                    <select>
+                    <select id="robotType">
                         <option value="husker">T-800 Model 101</option>
                         <option value="starbuck">Centurion</option>
                         <option value="hotdog">HAL</option>
@@ -65,13 +63,13 @@
                 </label>
                 <div class="row">
                     <div class="small-3 columns">
-                        <label for="middle-label" class="middle">Quantity</label>
+                        <label for="qty" class="middle">Quantity</label>
                     </div>
                     <div class="small-9 columns">
-                        <input type="text" id="middle-label" placeholder="10">
+                        <input type="number" step="1" min="1" id="qty" placeholder="10">
                     </div>
                 </div>
-                <a href="#" class="button large expanded">Buy Now</a>
+                <button class="button large expanded" id="buyNowButton" disabled>Buy Now</button>
             </div>
         </div>
         <div class="column row">
@@ -192,6 +190,52 @@
         <script src="js/vendor/what-input.js"></script>
         <script>
           $(document).foundation();
+
+          //
+          $("#qty")
+            .on("keyup input change", function () {
+                var val = $("#qty").val();
+                var btn = $('#buyNowButton');
+                if (val.length > 0 && val != 0) {
+                    btn.prop("disabled", false);
+                } else {
+                    btn.prop("disabled", "true");
+                }
+            });
+
+          // buy now button
+          $('#buyNowButton')
+            .on('click', function (ev) {
+                var btn = $(this);
+                // disable buy now button and change to "purchasing"
+                btn.prop("disabled", "true");
+
+                btn.text("Purchasing...");
+
+                var typeRobot = $("#robotType option:selected").text();
+                var numRobots = $("#qty").val();
+
+                // wait 1500 ms
+                setTimeout(function () {
+                    // show success message
+                    var msg = "Thank you human for your purchase of " + numRobots + " " + typeRobot + " robot(s)."
+
+                    var msgContainer = $("<div class='callout' data-closable='fade-out'>" + msg + "</div>");
+
+                    var closeBtn = $("<button aria-label='Close Account Info Modal Box' class='close-button' data-close><span aria-hidden=\"true\">&times;</span></button>");
+
+                    msgContainer.append(closeBtn);
+
+                    (msgContainer).insertAfter(btn);
+
+                    // clear form input
+                    var val = $("#qty").val("");
+
+                    // reset button
+                    btn.text("Buy Now");
+                }, 1500);
+
+            });
 
           $('#comment-form')
             .on('forminvalid.zf.abide', function (ev, frm) {
