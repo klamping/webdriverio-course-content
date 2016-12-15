@@ -66,6 +66,12 @@ body {
   background: #222831;
 }
 
+.video-controls {
+  position: absolute;
+  z-index: 2;
+  right: 16px;
+}
+
 
 @charset "UTF-8";
 .accordion-navigation > a:after {
