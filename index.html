@@ -125,7 +125,11 @@
           <p class="lead">Your Robot Part Emporium Superstore.</p>
           <p>Selling nothing but robots and robot accessories.</p>
           <p>Here's a video review from a happy customer:</p>
-          <video src="images/dance.mp4" type="video/mp4" style="width: 100%;" loop controls></video>
+          <div class="video-controls">
+              <button id="play-btn" class="button">Play Video</button>
+              <button id="pause-btn" class="button" style="display: none;">Pause Video</button>
+          </div>
+          <video src="images/dance.mp4" type="video/mp4" style="width: 100%;" id="dance-video" loop></video>
 
           <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
@@ -137,6 +141,21 @@
         <script src="js/vendor/what-input.js"></script>
         <script>
             $(document).foundation();
+
+            var danceVideo = $('#dance-video')[0];
+            var playBtn = $('#play-btn');
+            var pauseBtn = $('#pause-btn');
+
+            playBtn.on('click', function () {
+                danceVideo.play();
+                pauseBtn.show();
+                playBtn.hide();
+            })
+            pauseBtn.on('click', function () {
+                danceVideo.pause();
+                pauseBtn.hide();
+                playBtn.show();
+            })
         </script>
     </body>
 </html>
