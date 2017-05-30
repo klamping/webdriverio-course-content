@@ -1,6 +1,6 @@
 describe("Shop CTA Button", function () {
   it("should link to the product page", function () {
-    browser.url('/');
+    browser.url('./');
 
     var title = browser.getTitle()
     expect(title).to.equal('Robot Parts Emporium');

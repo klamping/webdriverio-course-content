@@ -7,7 +7,7 @@ browser.addCommand('isVideoPaused', function () {
 
 describe('About us video', function () {
   beforeEach(function () {
-    browser.url('/');
+    browser.url('./');
     browser.click('=About Us');
   })
 

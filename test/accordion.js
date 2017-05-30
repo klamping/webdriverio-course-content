@@ -2,7 +2,7 @@ describe('Accordion', function () {
   var activeClass = 'is-active';
 
   beforeEach(function(){
-    browser.url('/');
+    browser.url('./');
   })
 
   it('should have active class on first item to start', function () {

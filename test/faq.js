@@ -1,6 +1,6 @@
 describe("Homepage FAQ Accordion", function () {
   beforeEach(function() {
-    browser.url("/");
+    browser.url("./");
   });
 
   it("should show first section on page load", function() {
