@@ -22,7 +22,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './test/**/*.page.js'
+        './test/**/*.page.js',
+        './test/spyfall.js'
     ],
     //
     // ============
