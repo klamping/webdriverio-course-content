@@ -10,9 +10,9 @@ var timeout = process.env.DEBUG ? 99999999 : 60000;
 
 exports.config = {
 
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
-    browserstackLocal: true,
+    user: process.env.TB_KEY,
+    key: process.env.TB_SECRET,
+    tbTunnel: true,
 
     //
     // ==================
@@ -47,14 +47,11 @@ exports.config = {
     // from the same test should run tests.
     //
     capabilities: [{
-        browserName: 'chrome',
-        'browserstack.local': true
+        browserName: 'chrome'
     }, {
-        'browserName' : 'IE',
-        'browser_version' : '11.0',
-        'os' : 'Windows',
-        'os_version' : '10',
-        'resolution' : '1024x768'
+        "platform": "WIN10",
+        "version": "11",
+        "browserName": "internet explorer"
     }],
     //
     // ===================
@@ -112,7 +109,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone', 'browserstack'],
+    services: ['selenium-standalone', 'testingbot'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html

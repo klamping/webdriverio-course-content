@@ -3,14 +3,15 @@ describe("Shop CTA Button", function () {
     browser.url('/');
 
     var title = browser.getTitle()
-    console.log('Title is: ' + title);
+    expect(title).to.equal('Robot Parts Emporium');
 
     browser.click('.shop-callout a');
 
-    var productTitle = browser.getTitle()
-    console.log('Title is: ' + productTitle);
+    var productTitle = browser.getTitle();
+    expect(productTitle).to.equal('Totally Not Evil Sentient Robot - Robot Parts Emporium');
 
     var url = browser.getUrl();
-    console.log('Url is: ' + url);
+
+    expect(url).to.include('product-page.html', 'URL mismatch');
   });
 });
