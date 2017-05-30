@@ -41,14 +41,7 @@ exports.config = {
     // from the same test should run tests.
     //
     capabilities: [{
-        browserName: 'chrome',
-        'browserstack.local': true
-    }, {
-        'browserName' : 'IE',
-        'browser_version' : '11.0',
-        'os' : 'Windows',
-        'os_version' : '10',
-        'resolution' : '1024x768'
+        browserName: 'chrome'
     }],
     //
     // ===================
