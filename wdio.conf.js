@@ -1,18 +1,12 @@
 var notifier = require('node-notifier');
 
-var baseUrl = 'http://localhost:8303';
-
-if (process.env.SERVER === "prod") {
-  baseUrl = 'http://www.kevinlamping.com/webdriverio-course-content';
-}
-
 var timeout = process.env.DEBUG ? 99999999 : 60000;
 
 exports.config = {
 
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
-    browserstackLocal: true,
+    user: process.env.SAUCE_USERNAME,
+    key: process.env.SAUCE_ACCESS_KEY,
+    sauceTunnel: true,
 
     //
     // ==================
@@ -78,7 +72,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: baseUrl,
+    baseUrl: 'http://www.kevinlamping.com/webdriverio-course-content/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -112,7 +106,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone', 'browserstack'],
+    services: ['sauce'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
