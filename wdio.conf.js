@@ -6,7 +6,6 @@ exports.config = {
 
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
-    sauceTunnel: true,
 
     //
     // ==================
@@ -22,8 +21,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './test/**/*.page.js',
-        './test/spyfall.js'
+        './test/spyfall.js',
+        './test/**/*.page.js'
     ],
     //
     // ============
