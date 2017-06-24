@@ -112,6 +112,11 @@ exports.config = {
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     // reporters: ['dot'],
+    reporterOptions: {
+        junit: {
+            outputDir: './'
+        }
+    },
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
