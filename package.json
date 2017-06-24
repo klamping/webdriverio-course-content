@@ -31,6 +31,7 @@
     "sync-request": "^3.0.1",
     "wdio-browserstack-service": "^0.1.4",
     "wdio-dot-reporter": "0.0.5",
+    "wdio-junit-reporter": "^0.3.0",
     "wdio-mocha-framework": "^0.5.8",
     "wdio-sauce-service": "^0.3.1",
     "wdio-selenium-standalone-service": "0.0.7",
