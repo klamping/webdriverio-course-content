@@ -29,12 +29,14 @@
     "onchange": "^3.2.0",
     "selenium-standalone": "^5.1.0",
     "sync-request": "^3.0.1",
+    "wdio-allure-reporter": "^0.1.2",
     "wdio-browserstack-service": "^0.1.4",
     "wdio-dot-reporter": "0.0.5",
     "wdio-junit-reporter": "^0.3.0",
     "wdio-mocha-framework": "^0.5.8",
     "wdio-sauce-service": "^0.3.1",
     "wdio-selenium-standalone-service": "0.0.7",
+    "wdio-teamcity-reporter": "^1.1.1",
     "wdio-testingbot-service": "^0.1.7",
     "webdriverio": "^4.5.2"
   }
