@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server sample-site -p 8303",
-    "test": "npm test",
-    "ghPages": "gh-pages -d sample-site",
-    "selser": "selenium-standalone"
+    "ghPages": "gh-pages -d sample-site"
   },
   "repository": {
     "type": "git",
@@ -22,9 +20,5 @@
   "dependencies": {
     "gh-pages": "^0.11.0",
     "http-server": "^0.9.0"
-  },
-  "devDependencies": {
-    "selenium-standalone": "^5.1.0",
-    "webdriverio": "^4.0.5"
   }
 }
