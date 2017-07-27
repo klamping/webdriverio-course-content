@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server sample-site -p 8303",
-    "ghPages": "gh-pages -d sample-site"
+    "ghPages": "gh-pages -d sample-site",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
